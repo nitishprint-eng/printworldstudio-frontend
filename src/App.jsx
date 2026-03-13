@@ -91,28 +91,126 @@ function Navbar({ page, setPage, cartCount, setCartOpen }) {
 }
 
 function HeroSection({ setPage }) {
+  const gold = "#c9a84c";
+  const goldLight = "rgba(201,168,76,0.15)";
+  const goldBorder = "rgba(201,168,76,0.35)";
   return (
-    <div style={{ background:"linear-gradient(135deg,#0f2044 0%,#1e3a5f 55%,#2d5a9e 100%)",
-      color:"#fff",padding:"100px 40px",textAlign:"center" }}>
-      <div style={{ fontSize:12,fontWeight:700,letterSpacing:3,color:S.orange,
-        textTransform:"uppercase",marginBottom:20 }}>✦ Premium Print-on-Demand Studio</div>
-      <h1 style={{ fontFamily:"'DM Serif Display',serif",fontSize:62,lineHeight:1.1,marginBottom:20 }}>
-        Print That Makes Your<br/>Brand <span style={{ color:S.orange }}>Unforgettable</span>
-      </h1>
-      <p style={{ fontSize:18,color:"rgba(255,255,255,0.75)",maxWidth:560,margin:"0 auto 36px",lineHeight:1.7 }}>
-        Premium business cards, stickers, canvas art & more — crafted with precision, delivered to your door.
-      </p>
-      <div style={{ display:"flex",gap:16,justifyContent:"center",flexWrap:"wrap" }}>
-        <button onClick={() => setPage("products")}
-          style={{ background:S.orange,color:"#fff",border:"none",padding:"15px 36px",
-            borderRadius:50,fontWeight:700,fontSize:16,cursor:"pointer" }}>
-          Shop Now →
-        </button>
-        <button onClick={() => setPage("products")}
-          style={{ background:"transparent",color:"#fff",border:"2px solid rgba(255,255,255,0.4)",
-            padding:"15px 36px",borderRadius:50,fontWeight:700,fontSize:16,cursor:"pointer" }}>
-          View Collection
-        </button>
+    <div style={{ position:"relative", overflow:"hidden",
+      background:"linear-gradient(160deg,#070e1a 0%,#0c1829 45%,#0f2044 100%)",
+      color:"#fff", padding:"0 40px" }}>
+
+      {/* Dot-grid texture overlay */}
+      <div style={{ position:"absolute",inset:0,pointerEvents:"none",
+        backgroundImage:"radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)",
+        backgroundSize:"28px 28px" }} />
+
+      {/* Warm radial glow behind headline */}
+      <div style={{ position:"absolute",top:"50%",left:"50%",
+        transform:"translate(-50%,-55%)",width:700,height:500,borderRadius:"50%",
+        background:"radial-gradient(ellipse, rgba(201,168,76,0.08) 0%, transparent 70%)",
+        pointerEvents:"none" }} />
+
+      {/* Corner ornamental lines */}
+      <div style={{ position:"absolute",top:36,left:48,width:60,height:60,
+        borderTop:`1px solid ${goldBorder}`,borderLeft:`1px solid ${goldBorder}`,pointerEvents:"none" }} />
+      <div style={{ position:"absolute",top:36,right:48,width:60,height:60,
+        borderTop:`1px solid ${goldBorder}`,borderRight:`1px solid ${goldBorder}`,pointerEvents:"none" }} />
+      <div style={{ position:"absolute",bottom:36,left:48,width:60,height:60,
+        borderBottom:`1px solid ${goldBorder}`,borderLeft:`1px solid ${goldBorder}`,pointerEvents:"none" }} />
+      <div style={{ position:"absolute",bottom:36,right:48,width:60,height:60,
+        borderBottom:`1px solid ${goldBorder}`,borderRight:`1px solid ${goldBorder}`,pointerEvents:"none" }} />
+
+      {/* Main content */}
+      <div style={{ position:"relative",maxWidth:820,margin:"0 auto",
+        textAlign:"center",padding:"120px 0 100px" }}>
+
+        {/* Eyebrow badge */}
+        <div style={{ display:"inline-flex",alignItems:"center",gap:10,
+          border:`1px solid ${goldBorder}`,background:goldLight,
+          borderRadius:40,padding:"7px 20px",marginBottom:32 }}>
+          <span style={{ display:"inline-block",width:6,height:6,borderRadius:"50%",
+            background:gold,boxShadow:`0 0 6px ${gold}` }} />
+          <span style={{ fontSize:11,fontWeight:700,letterSpacing:3,
+            color:gold,textTransform:"uppercase" }}>
+            Premium Print-on-Demand Studio
+          </span>
+          <span style={{ display:"inline-block",width:6,height:6,borderRadius:"50%",
+            background:gold,boxShadow:`0 0 6px ${gold}` }} />
+        </div>
+
+        {/* Headline */}
+        <h1 style={{ fontFamily:"'DM Serif Display',serif",fontSize:68,lineHeight:1.08,
+          marginBottom:6,letterSpacing:-1 }}>
+          Print That Makes Your
+        </h1>
+        <h1 style={{ fontFamily:"'DM Serif Display',serif",fontSize:68,lineHeight:1.08,
+          marginBottom:28,letterSpacing:-1 }}>
+          Brand{" "}
+          <span style={{ color:gold,position:"relative",display:"inline-block" }}>
+            Unforgettable
+            {/* Gold underline flourish */}
+            <svg viewBox="0 0 260 12" style={{ position:"absolute",bottom:-8,left:0,
+              width:"100%",height:10,overflow:"visible" }}>
+              <path d="M4 8 Q65 2 130 8 Q195 14 256 8" fill="none"
+                stroke={gold} strokeWidth="1.8" strokeLinecap="round" opacity="0.7"/>
+            </svg>
+          </span>
+        </h1>
+
+        {/* Thin gold divider */}
+        <div style={{ display:"flex",alignItems:"center",justifyContent:"center",
+          gap:14,marginBottom:28 }}>
+          <div style={{ height:1,width:60,background:`linear-gradient(to right, transparent, ${goldBorder})` }} />
+          <div style={{ color:gold,fontSize:14,opacity:0.7 }}>✦</div>
+          <div style={{ height:1,width:60,background:`linear-gradient(to left, transparent, ${goldBorder})` }} />
+        </div>
+
+        {/* Subheadline */}
+        <p style={{ fontSize:17,color:"rgba(255,255,255,0.65)",maxWidth:540,
+          margin:"0 auto 44px",lineHeight:1.75,fontWeight:400 }}>
+          Premium business cards, stickers, canvas art & more —<br/>
+          crafted with precision, delivered across India.
+        </p>
+
+        {/* CTA Buttons */}
+        <div style={{ display:"flex",gap:16,justifyContent:"center",flexWrap:"wrap",marginBottom:64 }}>
+          <button onClick={() => setPage("products")}
+            onMouseEnter={e => { e.currentTarget.style.background="#b8943e"; e.currentTarget.style.transform="translateY(-2px)"; }}
+            onMouseLeave={e => { e.currentTarget.style.background=gold; e.currentTarget.style.transform="translateY(0)"; }}
+            style={{ background:gold,color:"#070e1a",border:"none",padding:"15px 38px",
+              borderRadius:4,fontWeight:800,fontSize:15,cursor:"pointer",
+              letterSpacing:0.5,transition:"all 0.2s",boxShadow:`0 4px 20px rgba(201,168,76,0.3)` }}>
+            Shop Now →
+          </button>
+          <button onClick={() => setPage("contact")}
+            onMouseEnter={e => { e.currentTarget.style.background="rgba(201,168,76,0.1)"; e.currentTarget.style.transform="translateY(-2px)"; }}
+            onMouseLeave={e => { e.currentTarget.style.background="transparent"; e.currentTarget.style.transform="translateY(0)"; }}
+            style={{ background:"transparent",color:"#fff",border:`1.5px solid ${goldBorder}`,
+              padding:"15px 38px",borderRadius:4,fontWeight:700,fontSize:15,
+              cursor:"pointer",letterSpacing:0.5,transition:"all 0.2s" }}>
+            Request a Quote
+          </button>
+        </div>
+
+        {/* Stats trust bar */}
+        <div style={{ display:"flex",justifyContent:"center",gap:0,
+          borderTop:`1px solid rgba(255,255,255,0.07)`,paddingTop:40 }}>
+          {[
+            { num:"10,000+", label:"Orders Delivered" },
+            { num:"500+",    label:"Happy Brands" },
+            { num:"5★",      label:"Rated by Customers" },
+            { num:"All India", label:"Nationwide Delivery" },
+          ].map((s, i, arr) => (
+            <div key={s.label} style={{ flex:1,textAlign:"center",
+              borderRight: i < arr.length-1 ? `1px solid rgba(255,255,255,0.07)` : "none",
+              padding:"0 24px" }}>
+              <div style={{ fontFamily:"'DM Serif Display',serif",fontSize:28,
+                color:gold,marginBottom:4 }}>{s.num}</div>
+              <div style={{ fontSize:11,color:"rgba(255,255,255,0.45)",
+                fontWeight:600,letterSpacing:1.5,textTransform:"uppercase" }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -301,8 +399,70 @@ function UploadArea({ file, setFile }) {
   );
 }
 
-function CartDrawer({ cart, onClose, onRemove, onQtyChange }) {
+function loadRazorpay() {
+  return new Promise(resolve => {
+    if (window.Razorpay) { resolve(true); return; }
+    // Wait up to 5s for script that was preloaded in <head>
+    let waited = 0;
+    const poll = setInterval(() => {
+      waited += 100;
+      if (window.Razorpay) { clearInterval(poll); resolve(true); }
+      else if (waited >= 5000) { clearInterval(poll); resolve(false); }
+    }, 100);
+  });
+}
+
+function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderSuccess }) {
   const total = cart.reduce((s,i) => s + i.price, 0);
+  const [paying, setPaying] = useState(false);
+  const [payError, setPayError] = useState("");
+
+  const handleCheckout = async () => {
+    setPayError("");
+    setPaying(true);
+    try {
+      const loaded = await loadRazorpay();
+      if (!loaded) throw new Error("Payment gateway could not load. Check your internet connection and try again, or contact us directly at orders@theprintworld.in");
+
+      const res = await fetch(`${API}/create-order`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount: total,
+          currency: "INR",
+          items: cart.map(i => ({ name: i.name, option: i.option, price: i.price })),
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Could not create order. Please try again.");
+
+      const options = {
+        key: "rzp_live_SOili5pUti3LVb",
+        amount: data.amount,
+        currency: data.currency || "INR",
+        order_id: data.id,
+        name: "Print World Studio",
+        description: `Order of ${cart.length} item${cart.length > 1 ? "s" : ""}`,
+        handler: (response) => {
+          onClose();
+          onOrderSuccess?.(response);
+        },
+        theme: { color: "#1e3a5f" },
+        modal: { ondismiss: () => setPaying(false) },
+      };
+      const rzp = new window.Razorpay(options);
+      rzp.on("payment.failed", (resp) => {
+        setPayError("Payment failed: " + (resp.error?.description || "Please try again."));
+        setPaying(false);
+      });
+      setPaying(false);
+      rzp.open();
+    } catch (e) {
+      setPayError(e.message || "Something went wrong. Please try again.");
+      setPaying(false);
+    }
+  };
+
   return (
     <>
       <div onClick={onClose} style={{ position:"fixed",inset:0,background:"rgba(0,0,0,0.4)",zIndex:800 }} />
@@ -348,9 +508,19 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange }) {
               <span style={{ fontWeight:700 }}>Total</span>
               <span style={{ fontWeight:800,fontSize:20,color:S.navy }}>₹{total.toLocaleString()}</span>
             </div>
-            <button style={{ width:"100%",padding:"14px",background:S.navy,color:"#fff",
-              border:"none",borderRadius:50,fontSize:15,fontWeight:700,cursor:"pointer" }}>
-              Proceed to Checkout →
+            {payError && (
+              <div style={{ background:"#fef2f2",border:"1px solid #fecaca",borderRadius:10,
+                padding:"10px 14px",color:"#b91c1c",fontSize:13,marginBottom:12 }}>
+                ⚠️ {payError}
+              </div>
+            )}
+            <button onClick={handleCheckout} disabled={paying}
+              style={{ width:"100%",padding:"14px",
+                background: paying ? "#888" : S.navy,
+                color:"#fff",border:"none",borderRadius:50,
+                fontSize:15,fontWeight:700,cursor: paying ? "not-allowed" : "pointer",
+                transition:"background 0.2s" }}>
+              {paying ? "Preparing payment…" : "Proceed to Checkout →"}
             </button>
           </div>
         )}
@@ -805,10 +975,11 @@ function Footer({ setPage }) {
 
 // ─── MAIN APP ────────────────────────────────────────────────────────────────
 export default function App() {
-  const [page, setPage]         = useState("home");
-  const [cart, setCart]         = useState([]);
-  const [cartOpen, setCartOpen] = useState(false);
-  const [detail, setDetail]     = useState(null);
+  const [page, setPage]           = useState("home");
+  const [cart, setCart]           = useState([]);
+  const [cartOpen, setCartOpen]   = useState(false);
+  const [detail, setDetail]       = useState(null);
+  const [orderToast, setOrderToast] = useState(false);
 
   const addToCart = (product, option, extra) => {
     const price = product.prices?.[option] ?? product.price;
@@ -820,13 +991,27 @@ export default function App() {
 
   const viewProduct = (product) => { setDetail(product); setPage("detail"); };
 
-  // inject fonts
+  const handleOrderSuccess = () => {
+    setCart([]);
+    setCartOpen(false);
+    setOrderToast(true);
+    setTimeout(() => setOrderToast(false), 5000);
+  };
+
+  // inject fonts + Razorpay script eagerly
   if (typeof document !== "undefined" && !document.getElementById("pwfonts")) {
     const l = document.createElement("link");
     l.id = "pwfonts";
     l.rel = "stylesheet";
     l.href = "https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700;800&display=swap";
     document.head.appendChild(l);
+  }
+  if (typeof document !== "undefined" && !document.getElementById("rzp-script")) {
+    const s = document.createElement("script");
+    s.id = "rzp-script";
+    s.src = "https://checkout.razorpay.com/v1/checkout.js";
+    s.async = true;
+    document.head.appendChild(s);
   }
 
   return (
@@ -842,7 +1027,22 @@ export default function App() {
       {page === "contact"  && <ContactPage />}
       <Footer setPage={setPage} />
       {cartOpen && <CartDrawer cart={cart} onClose={() => setCartOpen(false)}
-        onRemove={removeFromCart} onQtyChange={() => {}} />}
+        onRemove={removeFromCart} onQtyChange={() => {}} onOrderSuccess={handleOrderSuccess} />}
+
+      {/* Order success toast */}
+      {orderToast && (
+        <div style={{ position:"fixed",bottom:32,left:"50%",transform:"translateX(-50%)",
+          background:"#1a3d2b",color:"#fff",padding:"16px 28px",borderRadius:50,
+          boxShadow:"0 8px 32px rgba(0,0,0,0.2)",zIndex:9999,
+          display:"flex",alignItems:"center",gap:12,fontSize:15,fontWeight:600,
+          animation:"fadeIn 0.3s ease" }}>
+          <span style={{ fontSize:22 }}>🎉</span>
+          Order placed successfully! We'll be in touch soon.
+          <button onClick={() => setOrderToast(false)}
+            style={{ background:"none",border:"none",color:"rgba(255,255,255,0.6)",
+              fontSize:18,cursor:"pointer",marginLeft:8 }}>×</button>
+        </div>
+      )}
     </div>
   );
 }
