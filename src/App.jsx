@@ -417,7 +417,25 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderSuccess }) {
   const [paying, setPaying] = useState(false);
   const [payError, setPayError] = useState("");
 
+  const [step, setStep] = useState("cart"); // "cart" | "details"
+  const [customer, setCustomer] = useState({ name:"", email:"", phone:"", address:"", city:"", pinCode:"" });
+  const custFields = [
+    { k:"name",    l:"Full Name",       t:"text",  p:"Your full name" },
+    { k:"email",   l:"Email",           t:"email", p:"you@example.com" },
+    { k:"phone",   l:"Phone",           t:"tel",   p:"10-digit mobile number" },
+    { k:"address", l:"Shipping Address",t:"text",  p:"Flat, Street, Area" },
+    { k:"city",    l:"City",            t:"text",  p:"City" },
+    { k:"pinCode", l:"PIN Code",        t:"text",  p:"6-digit PIN" },
+  ];
+
   const handleCheckout = async () => {
+    // Validate customer fields
+    for (const f of custFields) {
+      if (!customer[f.k].trim()) {
+        setPayError(`Please fill in your ${f.l}.`);
+        return;
+      }
+    }
     setPayError("");
     setPaying(true);
     try {
@@ -443,8 +461,38 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderSuccess }) {
         order_id: data.id,
         name: "Print World Studio",
         description: `Order of ${cart.length} item${cart.length > 1 ? "s" : ""}`,
-        handler: (response) => {
-          onClose();
+        prefill: { name: customer.name, email: customer.email, contact: customer.phone },
+        handler: async (response) => {
+          try {
+            // Build items array with full card details
+            const items = cart.map(i => ({
+              productName: i.name,
+              option: i.option,
+              price: i.price,
+              cardDetails: i.extra?.mode === "details" ? i.extra.details : null,
+              fileName: i.extra?.mode === "upload" ? i.extra.fileName : null,
+              uploadedUrl: i.extra?.uploadedUrl || null,
+            }));
+
+            await fetch(`${API}/payment/verify`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                razorpay_order_id:   response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature:  response.razorpay_signature,
+                customerName:    customer.name,
+                customerEmail:   customer.email,
+                customerPhone:   customer.phone,
+                shippingAddress: customer.address,
+                city:            customer.city,
+                pinCode:         customer.pinCode,
+                itemsJson:       JSON.stringify(items),
+              }),
+            });
+          } catch(e) {
+            console.error("Verify error:", e);
+          }
           onOrderSuccess?.(response);
         },
         theme: { color: "#1e3a5f" },
@@ -502,25 +550,56 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderSuccess }) {
             </div>
           ))}
         </div>
-        {cart.length > 0 && (
-          <div style={{ padding:"20px 24px",borderTop:"1px solid #f0f0f0" }}>
-            <div style={{ display:"flex",justifyContent:"space-between",marginBottom:16 }}>
-              <span style={{ fontWeight:700 }}>Total</span>
-              <span style={{ fontWeight:800,fontSize:20,color:S.navy }}>₹{total.toLocaleString()}</span>
+        {cart.length > 0 && step === "details" && (
+          <div style={{ padding:"20px 24px",borderTop:"1px solid #f0f0f0",overflowY:"auto" }}>
+            <div style={{ display:"flex",alignItems:"center",gap:10,marginBottom:16 }}>
+              <button onClick={() => setStep("cart")}
+                style={{ background:"#f5f5f5",border:"none",borderRadius:50,
+                  padding:"6px 14px",fontSize:13,cursor:"pointer" }}>← Back</button>
+              <div style={{ fontWeight:700,fontSize:15,color:S.navy }}>Delivery Details</div>
             </div>
+            {custFields.map(f => (
+              <div key={f.k} style={{ marginBottom:12 }}>
+                <label style={{ fontSize:11,fontWeight:700,color:"#555",letterSpacing:0.5,
+                  textTransform:"uppercase",display:"block",marginBottom:4 }}>{f.l}</label>
+                <input type={f.t} value={customer[f.k]} placeholder={f.p}
+                  onChange={e => setCustomer(p => ({...p,[f.k]:e.target.value}))}
+                  style={{ width:"100%",padding:"10px 12px",borderRadius:8,
+                    border:"1px solid #e0e0e0",fontSize:14,boxSizing:"border-box" }} />
+              </div>
+            ))}
             {payError && (
               <div style={{ background:"#fef2f2",border:"1px solid #fecaca",borderRadius:10,
                 padding:"10px 14px",color:"#b91c1c",fontSize:13,marginBottom:12 }}>
                 ⚠️ {payError}
               </div>
             )}
+            <div style={{ display:"flex",justifyContent:"space-between",
+              margin:"16px 0 12px",paddingTop:12,borderTop:"1px solid #f0f0f0" }}>
+              <span style={{ fontWeight:700 }}>Total</span>
+              <span style={{ fontWeight:800,fontSize:18,color:S.navy }}>₹{total.toLocaleString()}</span>
+            </div>
             <button onClick={handleCheckout} disabled={paying}
               style={{ width:"100%",padding:"14px",
                 background: paying ? "#888" : S.navy,
                 color:"#fff",border:"none",borderRadius:50,
                 fontSize:15,fontWeight:700,cursor: paying ? "not-allowed" : "pointer",
                 transition:"background 0.2s" }}>
-              {paying ? "Preparing payment…" : "Proceed to Checkout →"}
+              {paying ? "Preparing payment…" : "Pay ₹" + total.toLocaleString() + " →"}
+            </button>
+          </div>
+        )}
+        {cart.length > 0 && step === "cart" && (
+          <div style={{ padding:"20px 24px",borderTop:"1px solid #f0f0f0" }}>
+            <div style={{ display:"flex",justifyContent:"space-between",marginBottom:16 }}>
+              <span style={{ fontWeight:700 }}>Total</span>
+              <span style={{ fontWeight:800,fontSize:20,color:S.navy }}>₹{total.toLocaleString()}</span>
+            </div>
+            <button onClick={() => { setPayError(""); setStep("details"); }}
+              style={{ width:"100%",padding:"14px",background:S.navy,
+                color:"#fff",border:"none",borderRadius:50,
+                fontSize:15,fontWeight:700,cursor:"pointer" }}>
+              Proceed to Checkout →
             </button>
           </div>
         )}
