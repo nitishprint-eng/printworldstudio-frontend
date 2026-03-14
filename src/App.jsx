@@ -424,7 +424,7 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderSuccess }) {
       const loaded = await loadRazorpay();
       if (!loaded) throw new Error("Payment gateway could not load. Check your internet connection and try again, or contact us directly at orders@theprintworld.in");
 
-      const res = await fetch(`${API}/create-order`, {
+      const res = await fetch(`${API}/payment/create-order`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
