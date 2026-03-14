@@ -1,4 +1,4 @@
-// PrintWorldStudio v2.1 - Contact form with real API - Mar 2026
+// SimplifyPrints v2.1 - Contact form with real API - Mar 2026
 import { useState } from "react";
 
 const API = "https://printworldstudio-backend-production.up.railway.app/api";
@@ -88,7 +88,7 @@ function Navbar({ page, setPage, cartCount, setCartOpen }) {
       borderBottom:"1px solid #f0f0f0",padding:"0 32px" }}>
       <div style={{ maxWidth:1280,margin:"0 auto",display:"flex",
         alignItems:"center",justifyContent:"space-between",height:68 }}>
-        <img src={IMG.logo} alt="Print World Studio"
+        <img src={IMG.logo} alt="SimplifyPrints"
           onClick={() => setPage("home")}
           style={{ height:52,width:"auto",objectFit:"contain",cursor:"pointer" }} />
         <div style={{ display:"flex",gap:28,alignItems:"center" }}>
@@ -602,7 +602,7 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderSuccess }) {
         amount: data.amount,
         currency: data.currency || "INR",
         order_id: data.id,
-        name: "Print World Studio",
+        name: "SimplifyPrints",
         description: `Order of ${cart.length} item${cart.length > 1 ? "s" : ""}`,
         prefill: { name: customer.name, email: customer.email, contact: customer.phone },
         handler: async (response) => {
@@ -1108,7 +1108,7 @@ function HomePage({ setPage, onView, onAdd }) {
           <div style={{ fontSize:12,fontWeight:700,letterSpacing:2,color:S.orange,
             textTransform:"uppercase",marginBottom:12 }}>Why Choose Us</div>
           <h2 style={{ fontFamily:"'DM Serif Display',serif",fontSize:40,color:S.navy,marginBottom:48 }}>
-            Why PrintWorldStudio?
+            Why SimplifyPrints?
           </h2>
           <div style={{ display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:28 }}>
             {[
@@ -1132,7 +1132,7 @@ function HomePage({ setPage, onView, onAdd }) {
         padding:"80px 40px",textAlign:"center",color:"#fff" }}>
         <h2 style={{ fontFamily:"'DM Serif Display',serif",fontSize:48,marginBottom:14 }}>Ready to Print?</h2>
         <p style={{ fontSize:16,color:"rgba(255,255,255,0.75)",marginBottom:32 }}>
-          Join thousands of happy customers who trust PrintWorldStudio.
+          Join thousands of happy customers who trust SimplifyPrints.
         </p>
         <button onClick={() => setPage("products")}
           style={{ background:S.orange,color:"#fff",border:"none",padding:"16px 40px",
@@ -1240,7 +1240,7 @@ function AboutPage() {
     <div style={{ maxWidth:800,margin:"0 auto",padding:"72px 32px" }}>
       <h1 style={{ fontFamily:"'DM Serif Display',serif",fontSize:48,color:S.navy,marginBottom:16 }}>About Us</h1>
       <p style={{ fontSize:16,color:"#555",lineHeight:1.8,marginBottom:20 }}>
-        At <strong>Print World Studio</strong>, we believe great printing brings ideas to life. We are a modern
+        At <strong>SimplifyPrints</strong>, we believe great printing brings ideas to life. We are a modern
         printing and customization studio dedicated to delivering premium-quality printed products for businesses,
         brands, and individuals.
       </p>
@@ -1262,7 +1262,7 @@ function Footer({ setPage }) {
       <div style={{ maxWidth:1280,margin:"0 auto" }}>
         <div style={{ display:"grid",gridTemplateColumns:"2fr 1fr 1fr",gap:40,marginBottom:40 }}>
           <div>
-            <img src={IMG.logo} alt="Print World Studio" style={{ height:44,width:"auto",marginBottom:16 }} />
+            <img src={IMG.logo} alt="SimplifyPrints" style={{ height:44,width:"auto",marginBottom:16 }} />
             <p style={{ fontSize:13,lineHeight:1.7,maxWidth:320 }}>
               Premium print-on-demand studio delivering quality business cards, stickers, canvas art and more across India.
             </p>
@@ -1283,7 +1283,7 @@ function Footer({ setPage }) {
           </div>
         </div>
         <div style={{ borderTop:"1px solid #1e3a5f",paddingTop:20,textAlign:"center",fontSize:12 }}>
-          © 2025 PrintWorldStudio.com. All rights reserved.
+          © 2025 SimplifyPrints.com. All rights reserved.
         </div>
       </div>
     </footer>
