@@ -43,39 +43,26 @@ const PRODUCTS = [
     options:["Matte Finish","Glossy Finish"], prices:{"Matte Finish":499,"Glossy Finish":599},
     desc:"Beautiful thank you and best wishes cards to celebrate moments, express gratitude and delight your customers." },
 
-  // ── GYM / FITNESS POSTERS ─────────────────────────────────────────────────
-  // To replace placeholder: set img to your Cloudinary/hosted image URL
-  // To add more posters: copy a block below, give it a unique id
+  // ── GYM / FITNESS POSTERS — single collection product ────────────────────
+  // To add your poster images: replace each poster's img value with the URL
+  // To add more posters: add another object to the posters array below
 
-  { id:10, name:"Push Your Limits",           cat:"Posters", badge:"Fitness", noCustomization:true,
-    img:"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjU2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzJhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWUzYTVmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1NjAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIzNjAiIGhlaWdodD0iNTIwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjAxLDE2OCw3NiwwLjQpIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIyMDAiIHk9IjI3MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+R1lNIFBPU1RFUjwvdGV4dD48dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlIGNvbWluZyBzb29uPC90ZXh0Pjwvc3ZnPg==", options:['A4 (8×12")', 'A3 (12×18")', 'A2 (18×24")'],
+  { id:10, name:"GYM / Fitness Posters",  cat:"Posters", badge:"Fitness",
+    isPosterCollection:true,
+    img:"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjU2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzJhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWUzYTVmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1NjAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIzNjAiIGhlaWdodD0iNTIwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjAxLDE2OCw3NiwwLjQpIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIyMDAiIHk9IjI3MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+R1lNIFBPU1RFUjwvdGV4dD48dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlIGNvbWluZyBzb29uPC90ZXh0Pjwvc3ZnPg==",
+    options:['A4 (8×12")', 'A3 (12×18")', 'A2 (18×24")'],
     prices:{'A4 (8×12")':299,'A3 (12×18")':499,'A2 (18×24")':799},
-    unit:"per poster", desc:"Bold motivational gym poster printed on premium 200 GSM matte paper. Perfect for home gyms and fitness studios." },
-
-  { id:11, name:"Beast Mode ON",               cat:"Posters", badge:"Fitness", noCustomization:true,
-    img:"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjU2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzJhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWUzYTVmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1NjAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIzNjAiIGhlaWdodD0iNTIwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjAxLDE2OCw3NiwwLjQpIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIyMDAiIHk9IjI3MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+R1lNIFBPU1RFUjwvdGV4dD48dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlIGNvbWluZyBzb29uPC90ZXh0Pjwvc3ZnPg==", options:['A4 (8×12")', 'A3 (12×18")', 'A2 (18×24")'],
-    prices:{'A4 (8×12")':299,'A3 (12×18")':499,'A2 (18×24")':799},
-    unit:"per poster", desc:"High-energy motivational poster to fuel every workout session." },
-
-  { id:12, name:"No Pain No Gain",             cat:"Posters", badge:"Fitness", noCustomization:true,
-    img:"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjU2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzJhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWUzYTVmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1NjAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIzNjAiIGhlaWdodD0iNTIwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjAxLDE2OCw3NiwwLjQpIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIyMDAiIHk9IjI3MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+R1lNIFBPU1RFUjwvdGV4dD48dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlIGNvbWluZyBzb29uPC90ZXh0Pjwvc3ZnPg==", options:['A4 (8×12")', 'A3 (12×18")', 'A2 (18×24")'],
-    prices:{'A4 (8×12")':299,'A3 (12×18")':499,'A2 (18×24")':799},
-    unit:"per poster", desc:"Classic gym motivation — a powerful reminder to push through every rep." },
-
-  { id:13, name:"Train Hard Win Easy",          cat:"Posters", badge:"Fitness", noCustomization:true,
-    img:"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjU2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzJhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWUzYTVmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1NjAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIzNjAiIGhlaWdodD0iNTIwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjAxLDE2OCw3NiwwLjQpIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIyMDAiIHk9IjI3MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+R1lNIFBPU1RFUjwvdGV4dD48dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlIGNvbWluZyBzb29uPC90ZXh0Pjwvc3ZnPg==", options:['A4 (8×12")', 'A3 (12×18")', 'A2 (18×24")'],
-    prices:{'A4 (8×12")':299,'A3 (12×18")':499,'A2 (18×24")':799},
-    unit:"per poster", desc:"Inspire your clients to train harder and win bigger with this powerful poster." },
-
-  { id:14, name:"Champions Are Made Here",      cat:"Posters", badge:"Fitness", noCustomization:true,
-    img:"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjU2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzJhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWUzYTVmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1NjAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIzNjAiIGhlaWdodD0iNTIwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjAxLDE2OCw3NiwwLjQpIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIyMDAiIHk9IjI3MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+R1lNIFBPU1RFUjwvdGV4dD48dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlIGNvbWluZyBzb29uPC90ZXh0Pjwvc3ZnPg==", options:['A4 (8×12")', 'A3 (12×18")', 'A2 (18×24")'],
-    prices:{'A4 (8×12")':299,'A3 (12×18")':499,'A2 (18×24")':799},
-    unit:"per poster", desc:"Perfect for gym walls — remind your members where champions are built." },
-
-  { id:15, name:"Discipline Over Motivation",   cat:"Posters", badge:"Fitness", noCustomization:true,
-    img:"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjU2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzJhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWUzYTVmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1NjAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIzNjAiIGhlaWdodD0iNTIwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjAxLDE2OCw3NiwwLjQpIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIyMDAiIHk9IjI3MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+R1lNIFBPU1RFUjwvdGV4dD48dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlIGNvbWluZyBzb29uPC90ZXh0Pjwvc3ZnPg==", options:['A4 (8×12")', 'A3 (12×18")', 'A2 (18×24")'],
-    prices:{'A4 (8×12")':299,'A3 (12×18")':499,'A2 (18×24")':799},
-    unit:"per poster", desc:"A mindset shift in print — because discipline always outlasts motivation." },
+    unit:"per poster",
+    desc:"Premium motivational gym & fitness posters printed on 200 GSM matte paper. Choose your design, pick your size.",
+    posters:[
+      { id:"p1", name:"Push Your Limits",         img:"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjU2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzJhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWUzYTVmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1NjAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIzNjAiIGhlaWdodD0iNTIwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjAxLDE2OCw3NiwwLjQpIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIyMDAiIHk9IjI3MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+R1lNIFBPU1RFUjwvdGV4dD48dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlIGNvbWluZyBzb29uPC90ZXh0Pjwvc3ZnPg==" },
+      { id:"p2", name:"Beast Mode ON",             img:"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjU2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzJhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWUzYTVmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1NjAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIzNjAiIGhlaWdodD0iNTIwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjAxLDE2OCw3NiwwLjQpIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIyMDAiIHk9IjI3MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+R1lNIFBPU1RFUjwvdGV4dD48dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlIGNvbWluZyBzb29uPC90ZXh0Pjwvc3ZnPg==" },
+      { id:"p3", name:"No Pain No Gain",           img:"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjU2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzJhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWUzYTVmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1NjAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIzNjAiIGhlaWdodD0iNTIwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjAxLDE2OCw3NiwwLjQpIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIyMDAiIHk9IjI3MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+R1lNIFBPU1RFUjwvdGV4dD48dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlIGNvbWluZyBzb29uPC90ZXh0Pjwvc3ZnPg==" },
+      { id:"p4", name:"Train Hard Win Easy",        img:"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjU2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzJhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWUzYTVmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1NjAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIzNjAiIGhlaWdodD0iNTIwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjAxLDE2OCw3NiwwLjQpIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIyMDAiIHk9IjI3MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+R1lNIFBPU1RFUjwvdGV4dD48dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlIGNvbWluZyBzb29uPC90ZXh0Pjwvc3ZnPg==" },
+      { id:"p5", name:"Champions Are Made Here",   img:"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjU2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzJhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWUzYTVmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1NjAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIzNjAiIGhlaWdodD0iNTIwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjAxLDE2OCw3NiwwLjQpIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIyMDAiIHk9IjI3MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+R1lNIFBPU1RFUjwvdGV4dD48dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlIGNvbWluZyBzb29uPC90ZXh0Pjwvc3ZnPg==" },
+      { id:"p6", name:"Discipline Over Motivation", img:"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjU2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzJhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWUzYTVmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1NjAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIzNjAiIGhlaWdodD0iNTIwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjAxLDE2OCw3NiwwLjQpIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSIyMDAiIHk9IjI3MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+R1lNIFBPU1RFUjwvdGV4dD48dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlIGNvbWluZyBzb29uPC90ZXh0Pjwvc3ZnPg==" },
+    ],
+  },
 ];
 
 const BADGE_STYLE = {
@@ -319,21 +306,25 @@ function ProductCard({ product, onView, onAdd }) {
 function AddToCartModal({ product, selOpt, onClose, onConfirm }) {
   const isCard = product.cat === "Cards";
   const isPoster = !!product.noCustomization;
-  const isPoster = !!product.noCustomization;
+  const isPosterCollection = !!product.isPosterCollection;
+  const [selPoster, setSelPoster] = useState(product.posters?.[0] || null);
   const [tab, setTab]           = useState("details");
   const [file, setFile]         = useState(null);
   const [uploadedUrl, setUploadedUrl] = useState(null);
   const [details, setDetails]   = useState({ fullName:"", jobTitle:"", company:"", phone:"", email:"", website:"", address:"" });
   const price = product.prices?.[selOpt] ?? product.price;
 
-  const canAdd = isPoster
-    ? true
-    : tab === "details"
-      ? !!details.fullName.trim()
-      : !!uploadedUrl;
+  const canAdd = isPosterCollection
+    ? !!selPoster
+    : isPoster
+      ? true
+      : tab === "details"
+        ? !!details.fullName.trim()
+        : !!uploadedUrl;
 
   const handleConfirm = () => {
     if (!canAdd) return;
+    if (isPosterCollection) { onConfirm({ mode:"poster", posterName: selPoster?.name }); return; }
     if (isPoster) { onConfirm({ mode:"poster" }); return; }
     onConfirm(tab === "upload"
       ? { mode:"upload", fileName:file?.name, uploadedUrl }
@@ -359,7 +350,34 @@ function AddToCartModal({ product, selOpt, onClose, onConfirm }) {
             width:32,height:32,fontSize:18,cursor:"pointer",color:"#555",flexShrink:0 }}>×</button>
         </div>
         <div style={{ padding:"18px 26px 26px" }}>
-          {isPoster ? (
+          {isPosterCollection ? (
+            <div>
+              <p style={{ fontSize:12,color:"#888",marginBottom:12 }}>Select the design you want printed.</p>
+              <div style={{ display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:8,marginBottom:12 }}>
+                {product.posters.map(p => (
+                  <div key={p.id} onClick={() => setSelPoster(p)}
+                    style={{ cursor:"pointer",borderRadius:8,overflow:"hidden",
+                      border: selPoster?.id===p.id ? `2px solid ${S.navy}` : "2px solid #e0e0e0",
+                      transition:"all 0.15s" }}>
+                    <img src={p.img} alt={p.name}
+                      style={{ width:"100%",aspectRatio:"3/4",objectFit:"cover",display:"block" }} />
+                    <div style={{ padding:"4px 6px",fontSize:10,fontWeight:600,
+                      color: selPoster?.id===p.id ? S.navy : "#666",
+                      background: selPoster?.id===p.id ? "#eff6ff" : "#fafafa",
+                      textAlign:"center",lineHeight:1.3 }}>
+                      {p.name}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {selPoster && (
+                <div style={{ background:"#eff6ff",borderRadius:8,padding:"8px 12px",
+                  fontSize:12,color:S.navy,fontWeight:600 }}>
+                  ✓ Selected: {selPoster.name}
+                </div>
+              )}
+            </div>
+          ) : isPoster ? (
             <div style={{ textAlign:"center",padding:"20px 0" }}>
               <div style={{ fontSize:48,marginBottom:12 }}>🏋️</div>
               <div style={{ fontWeight:700,fontSize:16,color:S.navy,marginBottom:6 }}>
@@ -662,7 +680,9 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderSuccess }) {
               <div style={{ flex:1 }}>
                 <div style={{ fontWeight:700,fontSize:14,color:"#1a1a1a" }}>{item.name}</div>
                 <div style={{ fontSize:12,color:"#888",marginTop:2 }}>{item.option}</div>
-                {item.extra?.mode==="details" && item.extra?.details?.fullName && (
+                {item.extra?.mode==="poster" && item.extra?.posterName && (
+                  <div style={{ fontSize:11,color:"#b91c1c",marginTop:2 }}>🏋️ {item.extra.posterName}</div>
+                )}
                   <div style={{ fontSize:11,color:"#666",marginTop:2 }}>👤 {item.extra.details.fullName}</div>
                 )}
                 {item.extra?.mode==="upload" && item.extra?.fileName && (
@@ -742,8 +762,11 @@ function ProductDetailPage({ product, onBack, onAdd }) {
   const [details, setDetails] = useState({ fullName:"",jobTitle:"",company:"",phone:"",email:"",website:"",address:"" });
   const [added, setAdded]     = useState(false);
   const isCard = product.cat === "Cards";
+  const isPoster = !!product.noCustomization;
+  const isPosterCollection = !!product.isPosterCollection;
+  const [selPoster, setSelPoster] = useState(product.posters?.[0] || null);
+  const [lightbox, setLightbox] = useState(null);
   const basePrice = product.prices?.[selOpt] ?? product.price;
-  const hasBulk   = product.bulkDiscount && qty > product.bulkDiscount.qty;
   const discount  = hasBulk ? product.bulkDiscount.pct : 0;
   const price     = Math.round(basePrice * (1 - discount/100));
   const total     = price * qty;
@@ -751,17 +774,23 @@ function ProductDetailPage({ product, onBack, onAdd }) {
   const [uploadedUrl, setUploadedUrl] = useState(null);
 
   const handleAdd = () => {
-    const extra = tab==="upload"
-      ? {mode:"upload", fileName:file?.name, leafs:selLeaf, uploadedUrl}
-      : {mode:"details", details, leafs:selLeaf};
-    onAdd(product, selOpt, extra);
+    if (isPosterCollection) {
+      onAdd(product, selOpt, { mode:"poster", posterName: selPoster?.name });
+    } else {
+      const extra = tab==="upload"
+        ? {mode:"upload", fileName:file?.name, leafs:selLeaf, uploadedUrl}
+        : {mode:"details", details, leafs:selLeaf};
+      onAdd(product, selOpt, extra);
+    }
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   };
 
-  const canAdd = tab === "upload"
-    ? !!uploadedUrl
-    : true;
+  const canAdd = isPosterCollection
+    ? !!selPoster
+    : tab === "upload"
+      ? !!uploadedUrl
+      : true;
 
   return (
     <div style={{ maxWidth:1100,margin:"0 auto",padding:"48px 32px" }}>
@@ -863,8 +892,86 @@ function ProductDetailPage({ product, onBack, onAdd }) {
                   background:"#fff",fontSize:18,cursor:"pointer" }}>+</button>
             </div>
           </div>
-          {/* Poster — no customization needed */}
-          {isPoster && (
+          {/* Poster Collection — gallery picker */}
+          {isPosterCollection && (
+            <div style={{ marginBottom:20 }}>
+              <div style={{ fontSize:12,fontWeight:700,color:"#555",textTransform:"uppercase",
+                letterSpacing:0.5,marginBottom:12 }}>Choose Your Design</div>
+              <div style={{ display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:10 }}>
+                {product.posters.map(p => (
+                  <div key={p.id}
+                    style={{ cursor:"pointer",borderRadius:10,overflow:"hidden",
+                      border: selPoster?.id===p.id ? `2px solid ${S.navy}` : "2px solid transparent",
+                      boxShadow: selPoster?.id===p.id ? `0 0 0 2px ${S.navy}` : "0 2px 8px rgba(0,0,0,0.08)",
+                      transition:"all 0.15s" }}
+                    onClick={() => setLightbox(p)}>
+                    <img src={p.img} alt={p.name}
+                      style={{ width:"100%",aspectRatio:"3/4",objectFit:"cover",display:"block" }} />
+                    <div style={{ padding:"6px 8px",fontSize:11,fontWeight:600,
+                      color: selPoster?.id===p.id ? S.navy : "#555",
+                      background: selPoster?.id===p.id ? "#eff6ff" : "#fafafa",
+                      textAlign:"center",lineHeight:1.3 }}>
+                      {p.name}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {selPoster && (
+                <div style={{ marginTop:12,background:"#eff6ff",border:`1px solid ${S.navy}20`,
+                  borderRadius:8,padding:"8px 12px",fontSize:12,color:S.navy,fontWeight:600 }}>
+                  ✓ Selected: {selPoster.name}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Lightbox */}
+          {isPosterCollection && lightbox && (
+            <>
+              <div onClick={() => setLightbox(null)}
+                style={{ position:"fixed",inset:0,background:"rgba(0,0,0,0.85)",zIndex:2000,
+                  backdropFilter:"blur(4px)" }} />
+              <div style={{ position:"fixed",top:"50%",left:"50%",
+                transform:"translate(-50%,-50%)",zIndex:2001,
+                background:"#fff",borderRadius:20,overflow:"hidden",
+                width:"min(92vw,480px)",maxHeight:"92vh",display:"flex",flexDirection:"column",
+                boxShadow:"0 32px 80px rgba(0,0,0,0.4)" }}>
+                {/* Lightbox header */}
+                <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",
+                  padding:"16px 20px",borderBottom:"1px solid #f0f0f0",flexShrink:0 }}>
+                  <div style={{ fontFamily:"'DM Serif Display',serif",fontSize:18,color:S.navy }}>
+                    {lightbox.name}
+                  </div>
+                  <button onClick={() => setLightbox(null)}
+                    style={{ background:"#f5f5f5",border:"none",borderRadius:50,
+                      width:32,height:32,fontSize:18,cursor:"pointer",color:"#555" }}>×</button>
+                </div>
+                {/* Poster image */}
+                <div style={{ flex:1,overflow:"hidden",background:"#f5f5f5" }}>
+                  <img src={lightbox.img} alt={lightbox.name}
+                    style={{ width:"100%",height:"100%",objectFit:"contain",display:"block" }} />
+                </div>
+                {/* Action buttons */}
+                <div style={{ padding:"16px 20px",borderTop:"1px solid #f0f0f0",
+                  display:"flex",gap:10,flexShrink:0 }}>
+                  <button onClick={() => setLightbox(null)}
+                    style={{ flex:1,padding:"11px",background:"#f5f5f5",color:"#555",
+                      border:"none",borderRadius:50,fontSize:14,fontWeight:600,cursor:"pointer" }}>
+                    Back to Gallery
+                  </button>
+                  <button onClick={() => { setSelPoster(lightbox); setLightbox(null); }}
+                    style={{ flex:2,padding:"11px",
+                      background: selPoster?.id===lightbox.id ? "#22c55e" : S.navy,
+                      color:"#fff",border:"none",borderRadius:50,fontSize:14,fontWeight:700,cursor:"pointer" }}>
+                    {selPoster?.id===lightbox.id ? "✓ Selected" : "Select This Design →"}
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* Single poster — no customization needed */}
+          {isPoster && !isPosterCollection && (
             <div style={{ background:"#f0fdf4",border:"1px solid #bbf7d0",borderRadius:12,
               padding:"14px 18px",marginBottom:20,fontSize:13,color:"#166534" }}>
               ✅ <strong>Ready-to-print design.</strong> Just select your size and add to cart.
@@ -950,7 +1057,7 @@ function ProductDetailPage({ product, onBack, onAdd }) {
 
 function ProductsPage({ onView, onAdd }) {
   const [filter, setFilter] = useState("All");
-  const cats = ["All","Cards","Stickers","Art","Stationery"];
+  const cats = ["All","Cards","Stickers","Art","Stationery","Posters"];
   const filtered = filter==="All" ? PRODUCTS : PRODUCTS.filter(p => p.cat===filter);
   return (
     <div style={{ maxWidth:1280,margin:"0 auto",padding:"48px 32px" }}>
